@@ -25,7 +25,7 @@ Route::get('search_service', function(Request $request){
 	$jsonData = $parcelService->searchAvailability($request);
 	
 	//print_r($jsonData['body']);
-	
+	if($jsonData !=NULL){
 	if($jsonData['body'] !=NULL){
 	
 	
@@ -34,6 +34,9 @@ Route::get('search_service', function(Request $request){
 	
 	}else{
 	return view('parcelnotfound')->with('title','Parcel Found, Proceed to Payment');		
+	}
+}else{
+	return redirect()->route('parcelnotfound')->with('title','Parcel Not Found - La Poste Parcel Search Service');
 }
 	
 })->name('parcel_service_search');
@@ -46,6 +49,15 @@ Route::get('parcelfound', function(){
 	
 })->name('parcelfound');
 
+
+Route::get('parcelnotfound',function(){
+	
+	return view('parcelnotfound')->with('title','Parcel Not Found - La Poste Parcel Search Service');
+	
+})->name('parcelnotfound');
+
+
+//paypal payment handler here
 Route::post('handle-payment', '\App\Http\Controllers\PayPalPaymentController@payment')->name('handle-payment');
 
 Route::get('trackinginfo_page', function(Request $request){
@@ -62,4 +74,5 @@ Route::get('trackinginfo_page', function(Request $request){
 	}
 })->name('trackinginfo_page');
 
-Route::get('cancel-payment','PayPalPaymentController@cancelTransaction')->name('cancel-payment');
+//Cancel payment transaction
+Route::get('cancel-payment','\App\Http\Controllers\PayPalPaymentController@cancelTransaction')->name('cancel-payment');

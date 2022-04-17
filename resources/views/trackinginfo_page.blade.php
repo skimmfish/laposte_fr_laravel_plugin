@@ -14,7 +14,11 @@
 <b class="text-xs text-center">{{-- $jsonBody['body']['shipment']['timeline'][0]['date'] --}}</b>
 <b class="text-xs text-center" style="color:#000;">
 
-<?php foreach($jsonBody['body']['shipment']['event'] as $xr){ 
+<?php 
+
+print_r($jsonBody['body']);
+
+foreach($jsonBody['body']['shipment']['event'] as $xr){ 
 echo '<div class="grid-column text-left text-xs">-Le ' .date('d/m/Y',strtotime($xr['date'])).' : '.$xr['label'].' <b class="text-transform:uppercase">('.$xr['code'].')</b> </div>'; }?>
 </b>
 
