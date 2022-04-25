@@ -84,18 +84,6 @@
             }
         </style>
 
-<script type="text/javascript">
-
-function closeModal(modalToClose){
-$('#closeModal').click( function (){
-$(modalToClose).modal('hide');     
-}); 
-}
-</script>	
-
-
-
-
     </head>
     <body>
  <div id="app">

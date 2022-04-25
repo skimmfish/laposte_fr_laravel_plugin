@@ -23,6 +23,6 @@
     'payment_action' => env('PAYPAL_PAYMENT_ACTION', 'Sale'),
     'currency'       => env('PAYPAL_CURRENCY', 'EUR'),
     'notify_url'     => env('PAYPAL_NOTIFY_URL', 'https://localhost:8000/trackinginfo_page'),
-    'locale'         => env('PAYPAL_LOCALE', 'en_GB'),
-    'validate_ssl'   => env('PAYPAL_VALIDATE_SSL', false),
+    'locale'         => env('PAYPAL_LOCALE', 'fr_FR'),
+    'validate_ssl'   => env('PAYPAL_VALIDATE_SSL', true),
 ];
